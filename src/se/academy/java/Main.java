@@ -8,16 +8,20 @@ public class Main {
 
         MP3Player m = new MP3Player();
 
+
+
         Scanner sc = new Scanner(System.in);
         boolean again = true;
         System.out.println("0\tExit program");
-        System.out.println("1\tPlay tune (one time)");
-        System.out.println("2\tPlay tune (loop)");
-        System.out.println("3\tStop tune (the loop)");
-        System.out.println("4\tStop all tunes");
+        System.out.println("1\tPlay victory-tune");
+        System.out.println("2\tPlay blues-tune (on repeat)");
+        System.out.println("3\tGet repeat mode status for blues-tune");
+        System.out.println("4\tTurn off repeat mode for blues-tune (existing bug: will stop tune)");
         System.out.println("5\tPause all tunes");
-        System.out.println("6\tResume all tunes (does not work, will start over all looped tunes)");
-        System.out.println("Default: Play a sound (try smashing ENTER)");
+        System.out.println("6\tResume all tunes (song that have not been played before will not be played)");
+        System.out.println("7\tStop all tunes");
+
+        System.out.println("Default: Play a special effect sound (try smashing ENTER)");
         do {
             System.out.print("\nCommand >> ");
             String command = sc.nextLine();
@@ -27,25 +31,33 @@ public class Main {
                     break;
 
                 case "1":
-                    m.playTune("victory.mp3");
+                    m.play("victory.mp3");
                     break;
                 case "2":
-                    m.playTune("Blues-Loop.mp3", true);
+                    m.play("Blues-Loop.mp3", true);
                     break;
                 case "3":
-                    m.stopTune("Blues-Loop.mp3");
+                    System.out.println("Is on repeat?: " + m.isRepeatMode("Blues-Loop.mp3"));
                     break;
                 case "4":
-                    m.stopAllTunes();
+                    m.setRepeatMode("Blues-Loop.mp3", false);
+                    System.out.println("Changed repeat to " + m.isRepeatMode("Blues-Loop.mp3"));
                 case "5":
-                    m.pauseAllTunes();
+                    m.pauseAll();
                     break;
                 case "6":
-                    m.resumeAllTunes();
+                    m.resumeAll();
                     break;
-
+                case "7":
+                    m.stopAll();
+                    break;
                 default:
-                    m.playSound("button-3.mp3");
+                    m.playFX("button-3.mp3");
+//                    m.playFX("victory.mp3");
+
+                    // if the musics stops while playing too many tunes, try playFXLightThread instead
+//                    m.playFXLightThread("button-3.mp3");
+//                    m.playFXLightThread("victory.mp3");
                     break;
             }
         } while (again);
