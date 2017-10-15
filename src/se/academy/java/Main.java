@@ -8,8 +8,6 @@ public class Main {
 
         MP3Player m = new MP3Player();
 
-
-
         Scanner sc = new Scanner(System.in);
         boolean again = true;
         System.out.println("0\tExit program");
