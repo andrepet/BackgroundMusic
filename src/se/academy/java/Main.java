@@ -14,7 +14,7 @@ public class Main {
         System.out.println("1\tPlay victory-tune");
         System.out.println("2\tPlay blues-tune (on repeat)");
         System.out.println("3\tGet repeat mode status for blues-tune");
-        System.out.println("4\tTurn off repeat mode for blues-tune (existing bug: will stop tune)");
+        System.out.println("4\t(REMOVED, DOES NOT WORK) Turn off repeat mode for blues-tune");
         System.out.println("5\tPause all tunes");
         System.out.println("6\tResume all tunes (song that have not been played before will not be played)");
         System.out.println("7\tStop all tunes");
@@ -38,8 +38,8 @@ public class Main {
                     System.out.println("Is on repeat?: " + m.isRepeatMode("Blues-Loop.mp3"));
                     break;
                 case "4":
-                    m.setRepeatMode("Blues-Loop.mp3", false);
-                    System.out.println("Changed repeat to " + m.isRepeatMode("Blues-Loop.mp3"));
+                    //m.setRepeatMode("Blues-Loop.mp3", false);
+                    System.out.println("This command is remove due to not working properly.");
                 case "5":
                     m.pauseAll();
                     break;

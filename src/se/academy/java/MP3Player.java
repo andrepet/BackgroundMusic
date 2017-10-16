@@ -70,7 +70,9 @@ public class MP3Player{
         }
     }
 
-    public void setRepeatMode(String filepath, boolean repeat){
+    // Does not work, it will stop the tune automatically once it is called
+    // The modifier is therefore set to private
+    private void setRepeatMode(String filepath, boolean repeat){
         try {
             if (audioMap.containsKey(filepath)) {
                 this.setLoop( audioMap.get(filepath), repeat);
