@@ -23,15 +23,12 @@ public class MP3Player{
     }
 
     private void setLoop(MediaPlayer mediaPlayer, boolean loop) {
-        if (mediaPlayer == null){
+        if (mediaPlayer == null)
             return;
-        }
-        if (loop) {
+        if (loop)
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        }
-        else{
+        else
             mediaPlayer.setCycleCount(1);
-        }
     }
 
     public void play(String filepath){
